@@ -93,5 +93,19 @@ namespace Application.Services
 
             return _pdfExportService.ExportAttendanceToPdf(filtered, year, month);
         }
+        public async Task<bool> IsCheckedOutAsync()
+        {
+            var todayRecord = await _repo.GetTodayAsync();
+            if (todayRecord == null)
+                return false; // No record means no check in was done.
+
+            if (todayRecord.Sessions == null || todayRecord.Sessions.Count == 0)
+                return false;
+
+            // Get the latest session.
+            var lastSession = todayRecord.Sessions.OrderBy(s => s.Id).LastOrDefault();
+            // If the exit time is entered, then the user has checked out.
+            return lastSession != null && lastSession.ExitTime.HasValue;
+        }
     }
 }

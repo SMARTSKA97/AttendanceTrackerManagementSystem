@@ -3,11 +3,13 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { HistoryComponent } from './component/history/history.component';
 import { ComingSoonComponent } from './assets/coming-soon/coming-soon.component';
 import { NotFoundComponent } from './assets/not-found/not-found.component';
+import { StatisticsComponent } from './component/statistics/statistics.component';
 
 export const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'history', component: HistoryComponent },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'coming-soon', component: ComingSoonComponent },
-    { path: 'not-found', component: NotFoundComponent }
+    { path: 'not-found', component: NotFoundComponent },
+    { path: 'statistics', component: StatisticsComponent}
 ];

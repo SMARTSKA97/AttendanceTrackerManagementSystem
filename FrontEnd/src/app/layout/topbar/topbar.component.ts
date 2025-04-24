@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ImportsModule } from '../../assets/imports';
-import { MenuItem } from 'primeng/api';
+import { MegaMenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-topbar',
@@ -9,39 +9,21 @@ import { MenuItem } from 'primeng/api';
   styleUrl: './topbar.component.scss'
 })
 export class TopbarComponent {
-  items: MenuItem[] | undefined;
+  items: MegaMenuItem[] | undefined;
+layoutService: any;
 
     ngOnInit() {
         this.items = [
             {
-                label: 'Home',
-                icon: 'pi pi-home',
+                label: 'Dashboard',
+                icon: 'pi pi-fw pi-home',
+                routerLink: '/dashboard',
             },
             {
-                label: 'Projects',
-                icon: 'pi pi-search',
-                badge: '3',
-                items: [
-                    {
-                        label: 'Core',
-                        icon: 'pi pi-bolt',
-                        shortcut: '⌘+S',
-                    },
-                    {
-                        label: 'Blocks',
-                        icon: 'pi pi-server',
-                        shortcut: '⌘+B',
-                    },
-                    {
-                        separator: true,
-                    },
-                    {
-                        label: 'UI Kit',
-                        icon: 'pi pi-pencil',
-                        shortcut: '⌘+U',
-                    },
-                ],
-            },
+                label: 'Statistics',
+                icon: 'pi pi-fw pi-book',
+                routerLink: '/statistics'
+            }
         ];
     }
 }

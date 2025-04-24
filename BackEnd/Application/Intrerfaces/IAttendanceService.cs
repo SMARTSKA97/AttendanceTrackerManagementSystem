@@ -10,5 +10,6 @@ namespace Application.Interfaces
         Task<AttendanceRecord?> GetTodayAsync();
         Task<AttendanceRecord> ToggleCheckAsync();
         Task<byte[]> ExportMonthlyPdfAsync(int year, int month);
+        Task<bool> IsCheckedOutAsync();
     }
 }

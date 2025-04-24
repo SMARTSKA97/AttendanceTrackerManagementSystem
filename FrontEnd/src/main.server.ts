@@ -1,7 +1,17 @@
 import { bootstrapApplication } from '@angular/platform-browser';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppComponent } from './app/app.component';
-import { config } from './app/app.config.server';
+import { appConfig } from './app/app.config';
+import { MessageService } from 'primeng/api';
 
-const bootstrap = () => bootstrapApplication(AppComponent, config);
-
-export default bootstrap;
+// Required default export for Angular SSR (prerendering support)
+export default function () {
+  return bootstrapApplication(AppComponent, {
+    ...appConfig,
+    providers: [
+      ...(appConfig.providers || []),
+      provideHttpClient(withInterceptorsFromDi()),
+      MessageService
+    ]
+  });
+}

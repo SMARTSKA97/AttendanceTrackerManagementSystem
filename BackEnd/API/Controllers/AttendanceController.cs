@@ -58,5 +58,18 @@ namespace API.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet("status")]
+        public async Task<IActionResult> GetStatus()
+        {
+            try
+            {
+                var isCheckedOut = await _attendanceService.IsCheckedOutAsync();
+                return Ok(new { isCheckedOut });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

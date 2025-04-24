@@ -1,0 +1,58 @@
+# Ignore node_modules and dist (Angular build)
+FrontEnd/node_modules/
+FrontEnd/dist/
+FrontEnd/.angular/
+FrontEnd/.vscode/
+FrontEnd/.DS_Store
+
+# Ignore Angular environment files
+FrontEnd/src/environments/*.ts
+FrontEnd/.env
+FrontEnd/.env.*.local
+
+# Ignore .NET build artifacts
+BackEnd/**/bin/
+BackEnd/**/obj/
+BackEnd/.vs/
+BackEnd/*.db
+BackEnd/*.bak
+BackEnd/*.user
+BackEnd/*.suo
+.vs/
+*.vsidx
+*.suo
+*.v9.bin
+*.v9.json
+*.v9/
+*.user
+*.tmp
+*.bak
+DocumentLayout.backup.json
+
+
+# Optional: ignore launch settings (personalized debugging config)
+BackEnd/**/launchSettings.json
+
+# Logs and reports
+*.log
+TestResults/
+*.coverage
+*.coveragexml
+
+# Rider, VS Code, or JetBrains
+.idea/
+.vscode/
+
+# Backup/temporary files
+*.tmp
+*.temp
+*.bak
+~$*
+
+# Output artifacts
+*.dll
+*.exe
+*.pdb
+
+# Ignore global git ignore artifacts if any
+!.gitignore

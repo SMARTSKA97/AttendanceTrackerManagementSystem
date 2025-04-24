@@ -1,2 +1,9 @@
-<p>dashboard works!</p>
-<p-button label="Click" icon="pi pi-check"></p-button>
+<p-card>
+    <div class="card-center">
+      <p-toast />
+      <p-button label="Check In" icon="pi pi-check" iconPos="left" (onClick)="toggleCheck()" *ngIf="checked"></p-button>
+      <p-button label="Check Out" icon="pi pi-check" iconPos="left" (onClick)="toggleCheck()" *ngIf="!checked"></p-button>
+      
+    </div>
+  </p-card>
+  

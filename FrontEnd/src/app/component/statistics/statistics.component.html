@@ -1,0 +1,14 @@
+<p-card class="flex flex-wrap w-full">
+    <div class="flex flex-row">
+        <label>Month:</label>
+        <p-select [options]="month" [(ngModel)]="selectedmonth" optionValue="id" optionLabel="name" />
+    </div>
+    <div class="flex flex-row">
+        <label>Year:</label>
+        <p-select [options]="year" [(ngModel)]="selectedYear" optionLabel="year" />
+    </div>
+    <div class="flex">
+        <p-button icon="pi pi-print" label="Print" (onClick)="print()" />
+    </div>
+
+</p-card>

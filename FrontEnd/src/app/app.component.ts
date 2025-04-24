@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TopbarComponent } from "./layout/topbar/topbar.component";
 import { FooterComponent } from "./layout/footer/footer.component";
+import { PrimeNG } from 'primeng/config';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,9 @@ import { FooterComponent } from "./layout/footer/footer.component";
 })
 export class AppComponent {
   title = 'AttendanceTracker';
+  constructor(private primeng: PrimeNG) {}
+
+    ngOnInit() {
+        this.primeng.ripple.set(true);
+    }
 }
