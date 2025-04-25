@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { ImportsModule } from '../../assets/imports';
+import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { SelectModule } from 'primeng/select';
+import { ImportsModule } from '../../imports';
 
 interface Month {
   name: string;
