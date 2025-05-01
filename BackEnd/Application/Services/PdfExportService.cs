@@ -38,14 +38,16 @@ namespace Infrastructure.Services
             // Summary table: total work and break durations.
             sb.Append("<h3>Daily Summary</h3>");
             sb.Append("<table>");
-            sb.Append("<tr><th>Date</th><th>Total Work Time</th><th>Total Break Time</th></tr>");
+            sb.Append("<tr><th>Date</th><th>Total Work Time</th><th>Total Break Time</th><th>Break lala</th></tr>");
             foreach (var r in records)
             {
                 sb.Append("<tr>");
                 sb.Append($"<td>{r.Date:yyyy-MM-dd}</td>");
                 sb.Append($"<td>{(r.TotalWorkDuration.HasValue ? r.TotalWorkDuration.Value.ToString(@"hh\:mm\:ss") : "-")}</td>");
                 sb.Append($"<td>{(r.TotalBreakDuration.HasValue ? r.TotalBreakDuration.Value.ToString(@"hh\:mm\:ss") : "-")}</td>");
+                sb.Append($"<td>{(r.TotalBreakDuration.Value)}</td>");
                 sb.Append("</tr>");
+                
             }
             sb.Append("</table>");
 

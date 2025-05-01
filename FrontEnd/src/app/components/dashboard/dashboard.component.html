@@ -1,18 +1,32 @@
 <p-card>
-    <div class="flex justify-content-between flex-wrap ">
-        <div class="flex">
-            <p-button label="Check In" (onClick)="toggleCheck()" *ngIf="isChecked"></p-button>
-            <p-button label="Check Out" (onClick)="toggleCheck()" *ngIf="!isChecked"></p-button>
+    <div class="flex flex-row place-content-stretch">
+        <div class="flex w-1/4 justify-center bg-blue-100 rounded-xl m-4">
+            <div class="p-4">
+                <p-button label="Check In" (onClick)="toggleCheck()" *ngIf="isChecked"></p-button>
+                <p-button label="Check Out" (onClick)="toggleCheck()" *ngIf="!isChecked"></p-button>
+            </div>
         </div>
-        <div class="flex">
-            {{ isChecked== true ? 'Checked Out @ ' : 'Checked In @ ' }}
-            {{ time }}
+        <div class="flex w-1/4 justify-center flex-col m-4">
+            <div class="flex justify-center text-xl bg-cyan-100 text-stone-900 rounded-xl">
+                Date : {{ date }}
+            </div>
+            <div class="flex justify-center">
+                <b>{{ isChecked== true ? 'Checked Out ' : 'Checked In ' }}</b>
+                <br />{{ time }}
+            </div>
         </div>
-        <div class="flex">
-            Total Work Duration: {{ totalDuration }}
-        </div>
-        <div class="flex">
-            Total Break Duration: {{ totalBreakDuration }}
+        <div class="flex w-1/2 flex-col m-4">
+            <div class="flex justify-center text-xl bg-cyan-100 text-stone-900 rounded-xl">
+                Since Last Check Out
+            </div>
+            <div class="flex flex-row">
+                <div class="flex w-1/2 justify-center">
+                    <b>Total Work Duration:</b> <br />{{ totalDuration }}
+                </div>
+                <div class="flex w-1/2 justify-center">
+                    <b>Total Break Duration:</b> <br />{{ totalBreakDuration }}
+                </div>
+            </div>
         </div>
     </div>
 </p-card>

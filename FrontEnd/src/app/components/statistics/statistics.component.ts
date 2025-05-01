@@ -4,6 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { SelectModule } from 'primeng/select';
 import { ImportsModule } from '../../imports';
+import { AttendanceService } from '../../service/attendance-service';
 
 interface Month {
   name: string;
@@ -22,6 +23,8 @@ export class StatisticsComponent {
   selectedmonth: any;
   selectedYear: any;
   year: any[] | undefined;
+
+  constructor(private attendanceService:AttendanceService){}
   ngOnInit(): void {
     this.month = [
       { name: 'January', id: 1 },
@@ -42,7 +45,15 @@ export class StatisticsComponent {
     ]
   }
   print() {
-    console.log(this.selectedYear, this.selectedmonth);
-    
+    this.attendanceService.exportAttendance(this.selectedYear, this.selectedmonth)
+      .subscribe((res: Blob) => {
+        const blob = new Blob([res], { type: 'application/pdf' });
+        const url = window.URL.createObjectURL(blob);
+        window.open(url); // Opens in a new tab
+      }, error => {
+        console.error('Failed to load PDF', error);
+      });
   }
+  
+  
 }
